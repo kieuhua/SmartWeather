@@ -11,8 +11,10 @@ import PhotoBackdrop from "./PhotoBackdrop/local_image";
 // This version pulls a specified photo from the camera roll
 // import PhotoBackdrop from './PhotoBackdrop';
 
-
 import textStyles from './styles/typography'
+
+import SampleText from "./SampleText"
+import DrawerExample from "./Drawer"
 
 const STORAGE_KEY = "@SmarterWeather:zip"
 
@@ -71,6 +73,8 @@ class SmartWeather extends Component {
         return(
             <PhotoBackdrop>
                 <View style={styles.overlay}>
+                    <DrawerExample />
+
                     <View style={styles.row}>
                         <Text style={textStyles.mainText}>
                             Forecast for
@@ -89,6 +93,7 @@ class SmartWeather extends Component {
 
                 {content}
 
+                <DrawerExample />
             </PhotoBackdrop>
         )
     }

@@ -1,7 +1,7 @@
 /** @format */
 
 import {AppRegistry} from 'react-native';
-import SmartWealther from './smart_wealther';
+import SmartWeather from './smart_weather';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => SmartWealther);
+AppRegistry.registerComponent(appName, () => SmartWeather);
