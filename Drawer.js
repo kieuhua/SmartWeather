@@ -50,7 +50,7 @@ DraftsStack.navigationOptions = {
     )
 }
 
-const DrawerExample = createDrawerNavigator(
+const Drawer = createDrawerNavigator(
     {
         Inbox: {path: '/', screen: InboxScreen},
         Drafts: {path: '/kieu_sent', screen: DraftsStack}
@@ -61,4 +61,4 @@ const DrawerExample = createDrawerNavigator(
     }
 )
 
-export default DrawerExample
+export default Drawer

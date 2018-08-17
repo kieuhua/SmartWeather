@@ -14,7 +14,7 @@ import PhotoBackdrop from "./PhotoBackdrop/local_image";
 import textStyles from './styles/typography'
 
 import SampleText from "./SampleText"
-import DrawerExample from "./Drawer"
+import Drawer from "./Drawer"
 
 const STORAGE_KEY = "@SmarterWeather:zip"
 
@@ -72,8 +72,9 @@ class SmartWeather extends Component {
         }
         return(
             <PhotoBackdrop>
+                <Drawer />
+
                 <View style={styles.overlay}>
-                    <DrawerExample />
 
                     <View style={styles.row}>
                         <Text style={textStyles.mainText}>
@@ -93,7 +94,6 @@ class SmartWeather extends Component {
 
                 {content}
 
-                <DrawerExample />
             </PhotoBackdrop>
         )
     }
