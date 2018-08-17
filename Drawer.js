@@ -15,24 +15,10 @@ const MyNavScreen = ({ navigation, banner}) => (
     </ScrollView>
 )
 
-const InboxScreen = ({navigation}) => (
-    <MyNavScreen banner={'Inbox Screen'} navigation={navigation} />
+const HomeScreen = ({navigation}) => (
+    <MyNavScreen banner={'Home Screen'} navigation={navigation} />
 )
-// don't where this headerTitle go
-InboxScreen.navigationOptions = { headerTitle: 'Home Weather2'}
-
-
-
-const InboxStack = createStackNavigator({
-    Inbox: { screen: InboxScreen},
-})
-
-InboxStack.navigationOptions = {
-    drawerLabel: 'Current Weather',
-    drawerIcon: ({ tintColor}) => (
-        <MaterialIcons name="mood" size={24} style={{color: tintColor}} />
-    )
-}
+HomeScreen.navigationOptions = { headerTitle: 'Home Weather'}
 
 const FamilyScreen = ({ navigation}) => (
     <MyNavScreen banner={'Family Screen'} navigation={navigation} />
@@ -93,7 +79,7 @@ WorksStack.navigationOptions = {
 const Drawer = createDrawerNavigator(
     //k this where you define routes
     {
-        Current_Weather: {path: '/', screen: InboxScreen},
+        Current_Weather: {path: '/', screen: HomeScreen },
         Family: {path: '/family', screen: FamilyStack},
         Friends: {path: '/friends', screen: FriendsStack },
         Vacations: {path: '/vacations', screen: VacationsStack},
