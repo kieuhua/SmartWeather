@@ -21,10 +21,6 @@ const InboxScreen = ({navigation}) => (
 // don't where this headerTitle go
 InboxScreen.navigationOptions = { headerTitle: 'Home Weather2'}
 
-const EmailScreen = ({ navigation}) => (
-    <MyNavScreen banner={'Email Screen'} navigation={navigation} />
-)
-
 const FamilyScreen = ({ navigation}) => (
     <MyNavScreen banner={'Family Screen'} navigation={navigation} />
 )
@@ -33,7 +29,6 @@ FamilyScreen.navigationOptions = { headerTitle: 'Home Weather'}
 
 const InboxStack = createStackNavigator({
     Inbox: { screen: InboxScreen},
-    Email: { screen: EmailScreen}
 })
 
 InboxStack.navigationOptions = {
@@ -55,8 +50,8 @@ FamilyStack.navigationOptions = {
         <MaterialIcons name="mood" size={24} style={{color: tintColor}} />
     )
 }
-const FriendsStack = createDrawerNavigator({
-    Drafts: { screen: FamilyScreen},
+const FriendsStack = createStackNavigator({
+    Friends: { screen: FamilyScreen},
 })
 FriendsStack.navigationOptions = {
     drawerLabel: "Friends",
@@ -65,8 +60,8 @@ FriendsStack.navigationOptions = {
     )
 }
 
-const VacationsStack = createDrawerNavigator({
-    Email: {screen: EmailScreen}
+const VacationsStack = createStackNavigator({
+    Vacations: {screen: FamilyScreen}
 })
 VacationsStack.navigationOptions = {
     drawerLabel: "Vacations",
@@ -75,8 +70,8 @@ VacationsStack.navigationOptions = {
     )
 }
 
-const WorksStack = createDrawerNavigator({
-    Email: {screen: EmailScreen}
+const WorksStack = createStackNavigator({
+    Works: {screen: FamilyScreen}
 })
 WorksStack.navigationOptions = {
     drawerLabel: "Works",
