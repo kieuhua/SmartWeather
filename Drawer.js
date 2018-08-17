@@ -21,11 +21,7 @@ const InboxScreen = ({navigation}) => (
 // don't where this headerTitle go
 InboxScreen.navigationOptions = { headerTitle: 'Home Weather2'}
 
-const FamilyScreen = ({ navigation}) => (
-    <MyNavScreen banner={'Family Screen'} navigation={navigation} />
-)
 
-FamilyScreen.navigationOptions = { headerTitle: 'Home Weather'}
 
 const InboxStack = createStackNavigator({
     Inbox: { screen: InboxScreen},
@@ -38,20 +34,26 @@ InboxStack.navigationOptions = {
     )
 }
 
-
+const FamilyScreen = ({ navigation}) => (
+    <MyNavScreen banner={'Family Screen'} navigation={navigation} />
+)
+FamilyScreen.navigationOptions = { headerTitle: 'Home Weather'}
 const FamilyStack = createStackNavigator({
     Family: { screen: FamilyScreen},
 })
-
-// so name="move-to-inbox" draws that icon before 'Family'
 FamilyStack.navigationOptions = {
     drawerLabel: 'Family',
     drawerIcon: ({tintColor}) => (
         <MaterialIcons name="mood" size={24} style={{color: tintColor}} />
     )
 }
+
+const FriendsScreen = ({ navigation}) => (
+    <MyNavScreen banner={'Friends Screen'} navigation={navigation} />
+)
+FriendsScreen.navigationOptions = { headerTitle: 'Home Weather'}
 const FriendsStack = createStackNavigator({
-    Friends: { screen: FamilyScreen},
+    Friends: { screen: FriendsScreen},
 })
 FriendsStack.navigationOptions = {
     drawerLabel: "Friends",
@@ -60,8 +62,12 @@ FriendsStack.navigationOptions = {
     )
 }
 
+const VacationsScreen = ({ navigation}) => (
+    <MyNavScreen banner={'Vacations Screen'} navigation={navigation} />
+)
+VacationsScreen.navigationOptions = { headerTitle: 'Home Weather'}
 const VacationsStack = createStackNavigator({
-    Vacations: {screen: FamilyScreen}
+    Vacations: {screen: VacationsScreen}
 })
 VacationsStack.navigationOptions = {
     drawerLabel: "Vacations",
@@ -70,8 +76,12 @@ VacationsStack.navigationOptions = {
     )
 }
 
+const WorksScreen = ({ navigation}) => (
+    <MyNavScreen banner={'Works Screen'} navigation={navigation} />
+)
+WorksScreen.navigationOptions = { headerTitle: 'Home Weather'}
 const WorksStack = createStackNavigator({
-    Works: {screen: FamilyScreen}
+    Works: {screen: WorksScreen}
 })
 WorksStack.navigationOptions = {
     drawerLabel: "Works",
