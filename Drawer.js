@@ -6,25 +6,30 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SampleText from './SampleText'
 import { Button } from "./commonComponents/ButtonWithMargin"
 
+import SmartWeather from "./smart_weather"
+
 const MyNavScreen = ({ navigation, banner}) => (
     <ScrollView>
         <Button onPress={() => navigation.openDrawer()} title="Open drawer" />
+        <SmartWeather />
     </ScrollView>
 )
 
 const InboxScreen = ({navigation}) => (
     <MyNavScreen banner={'Inbox Screen'} navigation={navigation} />
 )
-InboxScreen.navigationOptions = { headerTitle: 'Inbox'}
+// don't where this headerTitle go
+InboxScreen.navigationOptions = { headerTitle: 'Home Weather2'}
 
 const EmailScreen = ({ navigation}) => (
     <MyNavScreen banner={'Email Screen'} navigation={navigation} />
 )
 
-const DrafsScreen = ({ navigation}) => (
-    <MyNavScreen banner={'Drafts Screen'} navigation={navigation} />
+const FamilyScreen = ({ navigation}) => (
+    <MyNavScreen banner={'Family Screen'} navigation={navigation} />
 )
-DrafsScreen.navigationOptions = { headerTitle: 'Drafts'}
+
+FamilyScreen.navigationOptions = { headerTitle: 'Home Weather'}
 
 const InboxStack = createStackNavigator({
     Inbox: { screen: InboxScreen},
@@ -32,31 +37,65 @@ const InboxStack = createStackNavigator({
 })
 
 InboxStack.navigationOptions = {
-    drawerLabel: 'Inbox',
+    drawerLabel: 'Current Weather',
     drawerIcon: ({ tintColor}) => (
-        <MaterialIcons name="move-to-inbox" size={24} style={{color: tintColor}} />
+        <MaterialIcons name="mood" size={24} style={{color: tintColor}} />
     )
 }
 
-const DraftsStack = createStackNavigator({
-    Drafts: { screen: DrafsScreen},
-    Email: { screen: EmailScreen}
+
+const FamilyStack = createStackNavigator({
+    Family: { screen: FamilyScreen},
 })
 
-DraftsStack.navigationOptions = {
-    drawerLabel: 'Drafts',
+// so name="move-to-inbox" draws that icon before 'Family'
+FamilyStack.navigationOptions = {
+    drawerLabel: 'Family',
     drawerIcon: ({tintColor}) => (
-        <MaterialIcons name="drafts" size={24} style={{color: tintColor}} />
+        <MaterialIcons name="mood" size={24} style={{color: tintColor}} />
+    )
+}
+const FriendsStack = createDrawerNavigator({
+    Drafts: { screen: FamilyScreen},
+})
+FriendsStack.navigationOptions = {
+    drawerLabel: "Friends",
+    drawerIcon: ({tintColor}) => (
+        <MaterialIcons name="people" size={24} style={{color: tintColor}} />
+    )
+}
+
+const VacationsStack = createDrawerNavigator({
+    Email: {screen: EmailScreen}
+})
+VacationsStack.navigationOptions = {
+    drawerLabel: "Vacations",
+    drawerIcon: ({tintColor}) => (
+        <MaterialIcons name="spa" size={24} style={{color: tintColor}} />
+    )
+}
+
+const WorksStack = createDrawerNavigator({
+    Email: {screen: EmailScreen}
+})
+WorksStack.navigationOptions = {
+    drawerLabel: "Works",
+    drawerIcon: ({tintColor}) => (
+        <MaterialIcons name="work" size={24} style={{color: tintColor}} />
     )
 }
 
 const Drawer = createDrawerNavigator(
+    //k this where you define routes
     {
-        Inbox: {path: '/', screen: InboxScreen},
-        Drafts: {path: '/kieu_sent', screen: DraftsStack}
+        Current_Weather: {path: '/', screen: InboxScreen},
+        Family: {path: '/family', screen: FamilyStack},
+        Friends: {path: '/friends', screen: FriendsStack },
+        Vacations: {path: '/vacations', screen: VacationsStack},
+        Works: { path: '/works', screen: WorksStack}
     },
     {
-        initialRouteName: 'Drafts',
+        initialRouteName: 'Family',
         activeTintColor: '#e91e63'
     }
 )

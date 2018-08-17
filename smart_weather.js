@@ -72,7 +72,6 @@ class SmartWeather extends Component {
         }
         return(
             <PhotoBackdrop>
-                <Drawer />
 
                 <View style={styles.overlay}>
 
