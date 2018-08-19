@@ -8,6 +8,7 @@ import { Button } from "./commonComponents/ButtonWithMargin"
 
 import Member from "./Member"
 
+
 import SmartWeather from "./smart_weather"
 
 const MyNavScreen = ({ navigation, banner}) => (
