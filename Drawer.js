@@ -7,6 +7,7 @@ import SampleText from './SampleText'
 import { Button } from "./commonComponents/ButtonWithMargin"
 
 import Member from "./Member"
+import FamilyScreen from "./FamilyScreen"
 
 
 import SmartWeather from "./smart_weather"
@@ -34,19 +35,24 @@ let familyContent = familyMembers.map( member => {
         <Text key={member}>{member}</Text>
     )
 })
-
-const FamilyScreen = ({navigation}) => (
+/*
+const FamilyScreen1 = ({navigation}) => (
     <View>
         <Button title="kieuButton" />
         <Text> I am in FamilyView </Text>
         {familyContent}
         <Member />
+        <FamilyScreen />
     </View>
 )
+*/
+const FamilyScreen1 = ({navigation}) => (
+    <FamilyScreen />
+)
 
-FamilyScreen.navigationOptions = { headerTitle: 'Home Weather'}
+FamilyScreen1.navigationOptions = { headerTitle: 'Home Weather'}
 const FamilyStack = createStackNavigator({
-    Family: { screen: FamilyScreen},
+    Family: { screen: FamilyScreen1},
 })
 FamilyStack.navigationOptions = {
     drawerLabel: 'Family',
