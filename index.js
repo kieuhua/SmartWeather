@@ -2,9 +2,9 @@
 
 import {AppRegistry} from 'react-native';
 //import SmartWeather from './smart_weather';
-import Drawer from './Drawer'
+import HomeWeather from './homeweather'
 import {name as appName} from './app.json';
 
 //AppRegistry.registerComponent(appName, () => SmartWeather);
-AppRegistry.registerComponent(appName, () => Drawer);
+AppRegistry.registerComponent(appName, () => HomeWeather);
 

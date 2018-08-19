@@ -1,10 +1,12 @@
 import React from 'react'
-import { Platform, ScrollView, StatusBar } from 'react-native'
+import { Platform, ScrollView, StatusBar, View, Text, button } from 'react-native'
 import { createStackNavigator, createDrawerNavigator, SafeAreaView} from 'react-navigation'
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SampleText from './SampleText'
 import { Button } from "./commonComponents/ButtonWithMargin"
+
+import Member from "./Member"
 
 import SmartWeather from "./smart_weather"
 
@@ -19,10 +21,28 @@ const HomeScreen = ({navigation}) => (
     <MyNavScreen banner={'Home Screen'} navigation={navigation} />
 )
 HomeScreen.navigationOptions = { headerTitle: 'Home Weather'}
+_onPress = (children) => {
+    alert(children)
+}
 
-const FamilyScreen = ({ navigation}) => (
-    <MyNavScreen banner={'Family Screen'} navigation={navigation} />
+let familyMembers = ["morgan", "tuyet", "mai"]
+
+let familyContent = familyMembers.map( member => {
+    // I should have unique key like member.id
+    return (
+        <Text key={member}>{member}</Text>
+    )
+})
+
+const FamilyScreen = ({navigation}) => (
+    <View>
+        <Button title="kieuButton" />
+        <Text> I am in FamilyView </Text>
+        {familyContent}
+        <Member />
+    </View>
 )
+
 FamilyScreen.navigationOptions = { headerTitle: 'Home Weather'}
 const FamilyStack = createStackNavigator({
     Family: { screen: FamilyScreen},
@@ -86,7 +106,7 @@ const Drawer = createDrawerNavigator(
         Works: { path: '/works', screen: WorksStack}
     },
     {
-        initialRouteName: 'Family',
+        initialRouteName: 'Current_Weather',
         activeTintColor: '#e91e63'
     }
 )
