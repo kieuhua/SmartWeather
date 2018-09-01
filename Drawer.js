@@ -6,7 +6,6 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SampleText from './SampleText'
 import { Button } from "./commonComponents/ButtonWithMargin"
 
-import Member from "./Member"
 import FamilyScreen from "./FamilyScreen"
 
 
@@ -35,17 +34,7 @@ let familyContent = familyMembers.map( member => {
         <Text key={member}>{member}</Text>
     )
 })
-/*
-const FamilyScreen1 = ({navigation}) => (
-    <View>
-        <Button title="kieuButton" />
-        <Text> I am in FamilyView </Text>
-        {familyContent}
-        <Member />
-        <FamilyScreen />
-    </View>
-)
-*/
+
 const FamilyScreen1 = ({navigation}) => (
     <FamilyScreen />
 )

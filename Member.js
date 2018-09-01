@@ -1,30 +1,29 @@
-import React, { Component} from 'react'
-import {Text, Platform, PickerIOS, View, Picker } from 'react-native'
 
+class Member {
+    constructor(categoryID, name, zip, id) {
+        this.categoryID = categoryID
+        this.name = name
+        this.zip = zip
+        this.id = id
+    }
 
-class Member extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {category: "", categoryID: null}
+    setFromObject(ob) {
+        this.categoryID = ob.categoryID
+        this.name = ob.name
+        this.zip = ob.zip
+        this.id = ob.id
     }
-    render() {
-        return (
-            <View>
-                <Text>Please choose the category:</Text>
-                <Picker 
-                   selectedValue={this.state.category}
-                   style={{ height: 50, width:200}}
-                   onValueChange={( itemValue, itemIndex) => this.setState({ category: itemValue, categoryID: itemIndex})}>
-                   <Picker.Item label="Family" value="family" />
-                   <Picker.Item label="Friends" value="friends" />
-                   <Picker.Item label="Vacations" value="vacations" />
-                   <Picker.Item label="Works" value="works" />
-               
-                </Picker>
-                <Text>category Index is {this.state.categoryID}</Text>
-            </View>
-        )
+
+    static fromObject(ob) {
+        let m = new Member(ob.categoryID, ob.name, ob.zip, id)
+        m.setFromObject(ob)
+        return m
     }
+/*
+    addMember(member) {
+        this.members = this.members.concat(member)
+    }
+*/
 }
 
 export default Member
