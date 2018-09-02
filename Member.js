@@ -7,6 +7,7 @@ class Member {
         this.id = id
     }
 
+    // I think I may need to use these for Asynch storage to disk
     setFromObject(ob) {
         this.categoryID = ob.categoryID
         this.name = ob.name
@@ -19,11 +20,6 @@ class Member {
         m.setFromObject(ob)
         return m
     }
-/*
-    addMember(member) {
-        this.members = this.members.concat(member)
-    }
-*/
 }
 
 export default Member

@@ -5,10 +5,9 @@ import { connect } from "react-redux"
 
 import LabeledInput from "../commonComponents/LabeledInput"
 import { Button } from "../commonComponents/ButtonWithMargin";
-import { NormalText } from "../commonComponents/NormalText"
 import { addMember } from "../actions/creators";
 
-import Member from "../Member"
+import MemberView from "./MemberView"
 
 class FamilyScreen extends Component {
     static displayName = "FamilyScreen"
@@ -18,37 +17,28 @@ class FamilyScreen extends Component {
         this.state = { name: "", zip: ""}
        // this._createMember = this._createMember.bind(this)
     }
-/*
-    componentWillReceiveProps(nextProps) {
-        if(nextProps.members !== this.props.members) { alert("state change" )}
-    }
-*/
+
+    // some how all these handlers don't need a bind statement in constructor
+    // perhaps, because they have "_" leading the name ???
     _handlerName = text => {this.setState({ name: text})}
 
     _handlerZip = text => {this.setState({ zip: text})}
 
+    // when button press, this will be called
     _createMember = () => {
-        // Family categoryID = 0
-        // createMember(categoryID, name, zip) in actions/creators.js
-       // alert("kieu in _createMember" + this.state.name + this.state.zip )  
-        // I am here, name is zip are correct
-        // state.name and state.zip have good valid
         this.props.createMember(0, this.state.name, this.state.zip, )
     }
 
+    // update of storage does trigger the re-render of FamilyScreen compoent
     _mkMembersView() {
-       // alert("kieu in _mkMembersView" + this.props.members)
         if (!this.props.members) { return null}
-        // this work length = 4 when it is only 3
-       // alert("kieu in _mkMembersView" + this.props.members.length)
-        // members = [object Object]
         return this.props.members.map( member => {
-           // if (member.data.categoryID === 0 ) {
-            //    <Member key={member.data.id} />
-            //}
-           // alert( "kieu" + member.data.name)
-            <Member key={member.data.id} />
+            // this second return that I need, I record the in RN learned 
+            return(
+           <MemberView member={ member} key={member.data.id}/>
+            )
         })
+        
     }
 
     render() {
@@ -73,14 +63,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        // this._createMember func call this func
         createMember: (categoryID, name, zip) => {
-            //it hits the reducer with action undefint
-            // I got input correctly here
-            alert("kieu in mapDispatch" + categoryID + name + zip)
-            // I am good up to here, addMember() in Member.js has error
+            //alert("kieu in mapDispatch" + categoryID + name + zip)
             dispatch(addMember(categoryID, name, zip))
         }
     }
 }
 
+// these mapStateToProps and mapDispatchToProps are for FamilyScreen component
 export default connect(mapStateToProps, mapDispatchToProps) (FamilyScreen)
