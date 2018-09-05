@@ -17,7 +17,6 @@ const MyNavScreen = ({ navigation, banner}) => (
         <SmartWeather />
     </ScrollView>
 )
-
 const HomeScreen = ({navigation}) => (
     <MyNavScreen banner={'Home Screen'} navigation={navigation} />
 )
@@ -26,20 +25,11 @@ _onPress = (children) => {
     alert(children)
 }
 
-let familyMembers = ["morgan", "tuyet", "mai"]
-
-let familyContent = familyMembers.map( member => {
-    // I should have unique key like member.id
-    return (
-        <Text key={member}>{member}</Text>
-    )
-})
-
 const FamilyScreen1 = ({navigation}) => (
     <FamilyScreen />
 )
-
 FamilyScreen1.navigationOptions = { headerTitle: 'Home Weather'}
+
 const FamilyStack = createStackNavigator({
     Family: { screen: FamilyScreen1},
 })

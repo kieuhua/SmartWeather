@@ -9,6 +9,7 @@ import { addMember } from "../actions/creators";
 
 import MemberView from "./MemberView"
 
+
 class FamilyScreen extends Component {
     static displayName = "FamilyScreen"
 
@@ -45,7 +46,6 @@ class FamilyScreen extends Component {
         //alert("render FamilyScreen")
         return (
             <View>
-                <Text>Members List</Text>
                 {this._mkMembersView()}
                 <LabeledInput label="Name" clearOnSubmit={true} onEntry={this._handlerName} onChange={this._handlerName} />
                 <LabeledInput label="zip" clearOnSubmit={true} onEntry={this._handlerZip} onChange={this._handlerZip} />

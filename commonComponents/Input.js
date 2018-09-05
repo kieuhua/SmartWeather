@@ -53,6 +53,7 @@ Input.defaultProps = { clearOnSubmit: true };
 
 export default Input;
 
+// I change height from 60 to 30
 const styles = StyleSheet.create({
   nameField: { backgroundColor: colors.tan, height: 60 },
   wideButton: { justifyContent: "center", padding: 10, margin: 10 }
