@@ -5,36 +5,40 @@ import { connect } from "react-redux"
 
 import LabeledInput from "../commonComponents/LabeledInput"
 import { Button } from "../commonComponents/ButtonWithMargin";
+import { NormalText} from "../commonComponents/NormalText"
+
 import { addMember } from "../actions/creators";
 
 import MemberView from "./MemberView"
 
+import LogoTitle from "../commonComponents/LogoTitle"
 
 class FamilyScreen extends Component {
     static displayName = "FamilyScreen"
+    //static navigationOptions =  {title: 'Family',}
+    static navigationOptions = {
+        headerTitle: <LogoTitle name="Family"/>,
+        headerStyle: { backgroundColor: "#f4511e"}, 
+        headerTintColor: "#fff",
+        headerTitleStyle: {fontWeight: 'bold'}
+    }
 
     constructor(props) {
         super(props)
         this.state = { name: "", zip: ""}
-       // this._createMember = this._createMember.bind(this)
     }
 
-    // some how all these handlers don't need a bind statement in constructor
-    // perhaps, because they have "_" leading the name ???
-    _handlerName = text => {this.setState({ name: text})}
-
-    _handlerZip = text => {this.setState({ zip: text})}
-
-    // when button press, this will be called
-    _createMember = () => {
-        this.props.createMember(0, this.state.name, this.state.zip, )
+    componentWillReceiveProps(newprops) {
+        console.log("FamilyScreen will receive" + newprops)
     }
 
     // update of storage does trigger the re-render of FamilyScreen compoent
     _mkMembersView() {
-        if (!this.props.members) { return null}
+        if (!this.props.members) { 
+           // alert("it is empty")
+            return null
+        }
         return this.props.members.map( member => {
-            // this second return that I need, I record the in RN learned 
             return(
            <MemberView member={ member} key={member.data.id}/>
             )
@@ -43,19 +47,17 @@ class FamilyScreen extends Component {
     }
 
     render() {
-        //alert("render FamilyScreen")
+        const { navigation, navigationOptions} = this.props
+
         return (
             <View>
-                {this._mkMembersView()}
-                <LabeledInput label="Name" clearOnSubmit={true} onEntry={this._handlerName} onChange={this._handlerName} />
-                <LabeledInput label="zip" clearOnSubmit={true} onEntry={this._handlerZip} onChange={this._handlerZip} />
-
-                <Button onPress={this._createMember} title="Create Member" />
-                   
+                {this._mkMembersView()}              
+                <Button onPress={() => this.props.navigation.navigate('NewMember')} title="Add Member" />                
             </View>
         )
     }
 }
+
 
 const mapStateToProps = state => {
     return { members: state.members}
@@ -65,7 +67,6 @@ const mapDispatchToProps = dispatch => {
     return {
         // this._createMember func call this func
         createMember: (categoryID, name, zip) => {
-            //alert("kieu in mapDispatch" + categoryID + name + zip)
             dispatch(addMember(categoryID, name, zip))
         }
     }
@@ -73,3 +74,5 @@ const mapDispatchToProps = dispatch => {
 
 // these mapStateToProps and mapDispatchToProps are for FamilyScreen component
 export default connect(mapStateToProps, mapDispatchToProps) (FamilyScreen)
+
+//export default FamilyScreen

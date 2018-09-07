@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const fonts = StyleSheet.create({
-  small: {fontSize: 20 },
+  small: {fontSize: 20},
   normal: { fontSize: 24 },
   alternate: { fontSize: 50, color: "#FFFFFF" },
   big: { fontSize: 32, alignSelf: "center" }

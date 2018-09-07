@@ -4,6 +4,8 @@ import NormalText from "./commonComponents/NormalText"
 
 import OpenWeatherMap from "./open_weather_map"
 
+import { fonts } from "./styles/fonts"
+
 class WeatherZip extends Component {
     constructor(props) {
         super(props)
@@ -18,12 +20,25 @@ class WeatherZip extends Component {
 
     _forcastInfo() {
         this._getForcast()
-        if (this.state.forcast === null ) {return null }
-        if ( this.state.forcast.main === null || this.state.forcast.temp === null ) { return null}
+        if (this.state.forcast === null ) {
+            return (
+                <Text style={[this.props.style, fonts.small,]}>
+                    {this.props.name} {this.props.zip} Service unavailable
+                </Text>
+            )
+        }
+        if ( this.state.forcast.main === null || this.state.forcast.temp === null ) { 
+            return (
+                <Text style={[this.props.style, fonts.small,]}>
+                    {this.props.name} {this.props.zip} Service unavailable
+                </Text>
+            )
+        }
         return(
             <View >
                 <NormalText> {this.props.name} {this.props.zip}  {this.state.forcast.main} {this.state.forcast.temp}</NormalText>
             </View>
+            
         )
     }
 

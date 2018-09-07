@@ -11,6 +11,11 @@ import FamilyScreen from "./FamilyScreen"
 
 import SmartWeather from "./smart_weather"
 
+import NewMemberScreen from "./NewMemberScreen"
+
+import LogoTitle from "./commonComponents/LogoTitle"
+
+
 const MyNavScreen = ({ navigation, banner}) => (
     <ScrollView>
         <Button onPress={() => navigation.openDrawer()} title="Open drawer" />
@@ -25,14 +30,13 @@ _onPress = (children) => {
     alert(children)
 }
 
-const FamilyScreen1 = ({navigation}) => (
-    <FamilyScreen />
+const FamilyStack = createStackNavigator(
+    {
+    Family: {path: '/family', screen: FamilyScreen},
+    NewMember: { screen: NewMemberScreen}
+    }, 
 )
-FamilyScreen1.navigationOptions = { headerTitle: 'Home Weather'}
 
-const FamilyStack = createStackNavigator({
-    Family: { screen: FamilyScreen1},
-})
 FamilyStack.navigationOptions = {
     drawerLabel: 'Family',
     drawerIcon: ({tintColor}) => (
@@ -86,7 +90,7 @@ const Drawer = createDrawerNavigator(
     //k this where you define routes
     {
         Current_Weather: {path: '/', screen: HomeScreen },
-        Family: {path: '/family', screen: FamilyStack},
+        Family: FamilyStack,
         Friends: {path: '/friends', screen: FriendsStack },
         Vacations: {path: '/vacations', screen: VacationsStack},
         Works: { path: '/works', screen: WorksStack}
@@ -96,5 +100,7 @@ const Drawer = createDrawerNavigator(
         activeTintColor: '#e91e63'
     }
 )
+
+
 
 export default Drawer
