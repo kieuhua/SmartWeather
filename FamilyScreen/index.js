@@ -9,7 +9,7 @@ import { NormalText} from "../commonComponents/NormalText"
 
 import { addMember } from "../actions/creators";
 
-import MemberView from "./MemberView"
+import MemberView from "../NewMemberScreen/MemberView"
 
 import LogoTitle from "../commonComponents/LogoTitle"
 

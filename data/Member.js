@@ -1,10 +1,12 @@
 
+import md5 from "md5"
+
 class Member {
-    constructor(categoryID, name, zip, id) {
+    constructor(categoryID, name, zip) {
         this.categoryID = categoryID
         this.name = name
         this.zip = zip
-        this.id = id
+        this.id = md5(categoryID + name)
     }
 
     // I think I may need to use these for Asynch storage to disk

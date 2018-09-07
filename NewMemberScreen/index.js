@@ -8,7 +8,7 @@ import LogoTitle from "../commonComponents/LogoTitle"
 import { connect } from "react-redux"
 import { addMember} from "../actions/creators"
 
-import MemberView from "../FamilyScreen/MemberView"
+import MemberView from "./MemberView"
 
 class NewMemberScreen extends Component {
 
