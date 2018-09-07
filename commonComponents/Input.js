@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 
-import colors from "./colors";
-import { fonts } from "./fonts";
+import colors from "../styles/colors";
+import { fonts } from "../styles/fonts";
 
 class Input extends Component {
   constructor(props) {
