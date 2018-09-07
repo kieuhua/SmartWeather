@@ -8,9 +8,7 @@ class MemberView extends Component {
 
     render() {
         return(
-            <View>
-                <WeatherZip name={this.props.member.data.name} zip={this.props.member.data.zip} />
-           </View>
+            <WeatherZip name={this.props.member.data.name} zip={this.props.member.data.zip} />
         )
     }
 }

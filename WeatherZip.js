@@ -35,10 +35,7 @@ class WeatherZip extends Component {
             )
         }
         return(
-            <View >
                 <NormalText> {this.props.name} {this.props.zip}  {this.state.forcast.main} {this.state.forcast.temp}</NormalText>
-            </View>
-            
         )
     }
 
