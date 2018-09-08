@@ -1,5 +1,10 @@
+
 const WEATHER_API_KEY = "bbeb34ebf60ad50f7893e7440a1e2b0b";
+// this is kieu hua key
 //const WEATHER_API_KEY = "9925fbccea8c952f1adea3733c1e09fb";
+// this kieu default key
+//const WEATHER_API_KEY = "6cd9db88d9ee27c61dae106add25e969";  
+
 const API_STEM = "http://api.openweathermap.org/data/2.5/weather?";
 
 function zipUrl(zip) {

@@ -2,6 +2,7 @@
 import md5 from "md5"
 
 class Member {
+    // use in actions/creators.js
     constructor(categoryID, name, zip) {
         this.categoryID = categoryID
         this.name = name
@@ -9,7 +10,7 @@ class Member {
         this.id = md5(categoryID + name)
     }
 
-    // I think I may need to use these for Asynch storage to disk
+    // use Asynch storage ?? or where
     setFromObject(ob) {
         this.categoryID = ob.categoryID
         this.name = ob.name
@@ -17,6 +18,7 @@ class Member {
         this.id = ob.id
     }
 
+    // this is deserializer to use in storage/members.js
     static fromObject(ob) {
         let m = new Member(ob.categoryID, ob.name, ob.zip, id)
         m.setFromObject(ob)

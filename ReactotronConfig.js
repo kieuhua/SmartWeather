@@ -1,8 +1,17 @@
-import { reactotronRedux} from 'reactotron-redux'
+import Reactotron, {asyncStorage} from 'reactotron-react-native'
+import { reactotronRedux } from 'reactotron-redux'
 
-const Reactotron = Reactotron
-    .configure({ name: 'React Native Demo'})
+/*
+Reactotron
+    .configure()
+    .useReactNative()
+    .connect()
+*/
+
+const reactotron = Reactotron
+    .configure({ name: 'Smart Weather App'})
+    .use(asyncStorage())
     .use(reactotronRedux())
     .connect()
 
-export default Reactotron
+export default reactotron

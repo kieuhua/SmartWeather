@@ -16,20 +16,7 @@ import textStyles from './styles/typography'
 import SampleText from "./SampleText"
 import Drawer from "./Drawer"
 
-const STORAGE_KEY = "@SmarterWeather:zip"
-
-/*
-My current weather home page displays the last inquery either zip or current location,
-it is somewhat confusing, because when you re-open the app, you don't know the dispplay
-info is from old zip, it no longer in zip input, 
-
-I think the AsyncStorage keep the last zip, and even I click current location
-=> got the current location weather, but if I close the app, then open again
-I got => the previous zip, which I no long display in zip.
-
-I will change this for always display the weather of current location.
-
-*/
+//const STORAGE_KEY = "@SmarterWeather:zip"
 
 class SmartWeather extends Component {
     constructor(props) {
@@ -37,7 +24,7 @@ class SmartWeather extends Component {
         this.state = {forecast: null}
     }
     
-
+/*
     componentDidMount() {
         AsyncStorage.getItem(STORAGE_KEY).then(value => {
             if (value !== null ) {
@@ -47,18 +34,21 @@ class SmartWeather extends Component {
         .catch(error => console.log("AsyncStorage error: " + error.message))
         .done()
     }
+    */
 
     _getForecastForZip = zip => {
         // store zip code
+        /*
         AsyncStorage.setItem(STORAGE_KEY, zip)
             .then(() => console.log("Saved selection to disk: " + zip))
             .catch(error => console.error("AsyncStorage error: " + error.message))
             .done()
-
+        */
         //alert( `kieu zip in smart_wealther, getforecast..${zip}`)   
+        
         OpenWeatherMap.fetchZipForecast(zip).then(forecast => {
             this.setState({ forecast: forecast })
-        })
+        }) 
     }
 
     _getForecastForCoords = (lat, lon) => {

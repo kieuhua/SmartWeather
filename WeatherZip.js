@@ -13,9 +13,12 @@ class WeatherZip extends Component {
     }
 
     _getForcast() {
+        /*
         OpenWeatherMap.fetchZipForecast(this.props.zip).then(forcast => {
             this.setState({ forcast: forcast})
         })
+        */
+       return null
     }
 
     _forcastInfo() {
