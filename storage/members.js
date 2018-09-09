@@ -9,7 +9,7 @@ export const MEMBERS_KEY = "smartweather:members"
  // key is id
 async function read(key, deserializer) {
     try {
-        let val = await AsyncStoreage.getItem(key)
+        let val = await AsyncStorage.getItem(key)
         if (val !== null) {
             let readValue = JSON.parse(val).map(serialized => {
                 return deserializer(serialized)
