@@ -32,12 +32,10 @@ class FriendsScreen extends Component {
     }
 
     render() {
-        const { navigation, navigationOptions} = this.props
-
         return (
             <ScrollView>
                 {this._mkMembersView()}              
-                <Button onPress={() => this.props.navigation.navigate('NewMember', {categoryID: 0})} title="Add Member" />                
+                <Button onPress={() => this.props.navigation.navigate('NewMember', {categoryID: 1})} title="Add Member" />                
             </ScrollView>
         )
     }

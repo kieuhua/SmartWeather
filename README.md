@@ -31,6 +31,7 @@ Zip_Input_Aptos_CA.png
 DrawerScreen.png
 FamilyScreen.png
 NewMemberScreen.png
+FriendsScreen.png
 ```
 
 ```
