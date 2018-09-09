@@ -15,6 +15,8 @@ import NewMemberScreen from "./NewMemberScreen"
 
 import LogoTitle from "./commonComponents/LogoTitle"
 
+import FriendsScreen from "./FriendsScreen"
+
 
 const MyNavScreen = ({ navigation, banner}) => (
     <ScrollView>
@@ -44,6 +46,8 @@ FamilyStack.navigationOptions = {
     )
 }
 
+
+/*
 const FriendsScreen = ({ navigation}) => (
     <MyNavScreen banner={'Friends Screen'} navigation={navigation} />
 )
@@ -57,6 +61,22 @@ FriendsStack.navigationOptions = {
         <MaterialIcons name="people" size={24} style={{color: tintColor}} />
     )
 }
+*/
+
+const FriendsStack = createStackNavigator(
+    {
+    Friends: {path: '/friends', screen: FriendsScreen},
+    NewMember: { screen: NewMemberScreen}
+    }, 
+)
+
+FriendsStack.navigationOptions = {
+    drawerLabel: 'Friends',
+    drawerIcon: ({tintColor}) => (
+        <MaterialIcons name="mood" size={24} style={{color: tintColor}} />
+    )
+}
+
 
 const VacationsScreen = ({ navigation}) => (
     <MyNavScreen banner={'Vacations Screen'} navigation={navigation} />

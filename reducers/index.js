@@ -23,7 +23,8 @@ export const reducer = (state = initialState(), action) => {
             return action.data
         case ADD_MEMBER:
             //k finally I figure it out need to be action.data.name,..
-            let newState = {members: [ ...state.members.concat(addMember(0, action.data.name, action.data.zip))]}
+           // let newState = {members: [ ...state.members.concat(addMember(0, action.data.name, action.data.zip))]}
+            let newState = {members: [ ...state.members.concat(addMember(action.data.categoryID, action.data.name, action.data.zip))]}    
             saveMembers(newState)
             return newState
         default:

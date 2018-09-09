@@ -7,10 +7,10 @@ import { addMember } from "../actions/creators";
 import MemberView from "../NewMemberScreen/MemberView"
 import LogoTitle from "../commonComponents/LogoTitle"
 
-class FamilyScreen extends Component {
-    static displayName = "FamilyScreen"
+class FriendsScreen extends Component {
+    static displayName = "FriendsScreen"
     static navigationOptions = {
-        headerTitle: <LogoTitle name="Family"/>,
+        headerTitle: <LogoTitle name="Friends"/>,
         headerStyle: { backgroundColor: "#f4511e"}, 
         headerTintColor: "#fff",
         headerTitleStyle: {fontWeight: 'bold'}
@@ -23,7 +23,7 @@ class FamilyScreen extends Component {
             return null
         }
         return this.props.members.map( member => {
-            if (member.data.categoryID === 0 ) {
+            if (member.data.categoryID === 1 ) {
                 return(
                     <MemberView member={ member} key={member.data.id}/>
                 )
@@ -37,13 +37,12 @@ class FamilyScreen extends Component {
         return (
             <ScrollView>
                 {this._mkMembersView()}              
-                <Button onPress={() => this.props.navigation.navigate('NewMember')} title="Add Member" />                
+                <Button onPress={() => this.props.navigation.navigate('NewMember', {categoryID: 0})} title="Add Member" />                
             </ScrollView>
         )
     }
 }
 
-// I need this to display the members
 const mapStateToProps = state => {
     return { members: state.members}
 }
@@ -58,4 +57,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 // these mapStateToProps and mapDispatchToProps are for FamilyScreen component
-export default connect(mapStateToProps, mapDispatchToProps) (FamilyScreen)
+export default connect(mapStateToProps, mapDispatchToProps) (FriendsScreen)

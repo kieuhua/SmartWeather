@@ -29,7 +29,10 @@ class NewMemberScreen extends Component {
     _handlerZip = text => {this.setState({ zip: text })}
 
     _createMember = () => {
-        this.props.creatMember(0, this.state.name, this.state.zip,)
+        const {navigation} = this.props
+        const categoryID = navigation.getParam('categoryID', 0)
+        //this.props.creatMember(0, this.state.name, this.state.zip,)
+        this.props.creatMember(categoryID, this.state.name, this.state.zip,)
         this.props.navigation.goBack()
     }
     
@@ -44,6 +47,7 @@ class NewMemberScreen extends Component {
     }
 }
 
+// I needs these to save the new members
 const mapStateToProps = state => {
     return { members: state.members}
 }

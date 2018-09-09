@@ -5,7 +5,7 @@ This is Kieu Hua's React-Native almost finished project.
 It is for Kieu Hua's potential employer to evaluate her work.
 
 ## Smart Weather React-Native application
-It is currently running on my pixel android device. It provides wealther information of your 
+It is currently running on my pixel android device. It provides weather information of your 
 family members, your friends, your works and vacations locations.
 
 ### Redux
