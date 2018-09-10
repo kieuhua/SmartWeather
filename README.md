@@ -32,6 +32,8 @@ DrawerScreen.png
 FamilyScreen.png
 NewMemberScreen.png
 FriendsScreen.png
+VacationsScreen.png
+WorksScreen.png
 ```
 
 ```
